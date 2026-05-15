@@ -1,0 +1,27 @@
+name: mini_katalog
+description: "Flutter eğitimi bitirme projesi — Mini Katalog Uygulaması"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+# Yönerge gereği EKSTRA paket KULLANILMAMIŞTIR.
+# Yalnızca Flutter SDK ile birlikte gelen `flutter` ve `cupertino_icons` mevcuttur.
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  # JSON simülasyonu ve ürün görselleri için asset tanımları.
+  assets:
+    - assets/data/products.json
+    - assets/images/
