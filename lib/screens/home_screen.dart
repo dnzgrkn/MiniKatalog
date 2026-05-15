@@ -4,6 +4,7 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import '../models/product.dart';
 import '../widgets/product_card.dart';
+import 'cart_screen.dart';
 import 'detail_screen.dart';
 
 /// Home screen showing the product grid.
@@ -24,10 +25,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Product> _allProducts = [];
+  List<Product> _cartItems = [];
   String _searchQuery = '';
   String _selectedCategory = 'Tümü';
-  int _cartCount = 0;
   bool _isLoading = true;
+
+  int get _cartCount => _cartItems.fold(0, (sum, p) => sum + p.quantity);
 
   @override
   void initState() {
@@ -65,7 +68,20 @@ class _HomeScreenState extends State<HomeScreen> {
     return set.toList();
   }
 
-  /// Opens the detail screen and updates cart count from its return value.
+  /// Ürünü sepete ekler ya da mevcutsa adedini artırır.
+  void _addProductToCart(Product product, int quantity) {
+    setState(() {
+      final index = _cartItems.indexWhere((p) => p.id == product.id);
+      if (index >= 0) {
+        _cartItems[index] = _cartItems[index]
+            .copyWith(quantity: _cartItems[index].quantity + quantity);
+      } else {
+        _cartItems.add(product.copyWith(quantity: quantity));
+      }
+    });
+  }
+
+  /// Detay ekranını açar; dönen adet ile sepeti günceller.
   Future<void> _openDetail(Product product) async {
     final addedQuantity = await Navigator.push<int>(
       context,
@@ -74,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
     if (addedQuantity != null && addedQuantity > 0) {
-      setState(() => _cartCount += addedQuantity);
+      _addProductToCart(product, addedQuantity);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -82,6 +98,19 @@ class _HomeScreenState extends State<HomeScreen> {
           duration: const Duration(seconds: 2),
         ),
       );
+    }
+  }
+
+  /// Sepet ekranını açar; geri dönüldüğünde güncel listeyi alır.
+  Future<void> _openCart() async {
+    final updatedItems = await Navigator.push<List<Product>>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => CartScreen(cartItems: _cartItems),
+      ),
+    );
+    if (updatedItems != null) {
+      setState(() => _cartItems = updatedItems);
     }
   }
 
@@ -96,14 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               IconButton(
                 icon: const Icon(Icons.shopping_cart_outlined),
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Sepetinizde $_cartCount ürün var'),
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
-                },
+                onPressed: _openCart,
               ),
               if (_cartCount > 0)
                 Positioned(
@@ -223,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisCount: 2,
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
-        childAspectRatio: 0.72,
+        childAspectRatio: 0.62,
       ),
       itemCount: products.length,
       itemBuilder: (context, index) {
@@ -231,6 +253,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return ProductCard(
           product: product,
           onTap: () => _openDetail(product),
+          onAddToCart: () => _addProductToCart(product, 1),
         );
       },
     );

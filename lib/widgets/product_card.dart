@@ -8,11 +8,13 @@ import '../models/product.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
   final VoidCallback onTap;
+  final VoidCallback? onAddToCart;
 
   const ProductCard({
     super.key,
     required this.product,
     required this.onTap,
+    this.onAddToCart,
   });
 
   @override
@@ -95,6 +97,25 @@ class ProductCard extends StatelessWidget {
                         ],
                       ),
                     ],
+                  ),
+                  const SizedBox(height: 6),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 32,
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.add_shopping_cart, size: 14),
+                      label: const Text(
+                        'Sepete Ekle',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      onPressed: product.inStock ? onAddToCart : null,
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

@@ -12,6 +12,7 @@ class Product {
   final String description;
   final double rating;
   final bool inStock;
+  final int quantity;
 
   const Product({
     required this.id,
@@ -22,7 +23,20 @@ class Product {
     required this.description,
     required this.rating,
     required this.inStock,
+    this.quantity = 0,
   });
+
+  Product copyWith({int? quantity}) => Product(
+        id: id,
+        name: name,
+        price: price,
+        category: category,
+        imagePath: imagePath,
+        description: description,
+        rating: rating,
+        inStock: inStock,
+        quantity: quantity ?? this.quantity,
+      );
 
   /// Creates a [Product] from a decoded JSON map.
   factory Product.fromJson(Map<String, dynamic> json) {
