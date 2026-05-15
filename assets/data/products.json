@@ -1,0 +1,104 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Kablosuz Kulaklık",
+      "price": 1299.90,
+      "category": "Elektronik",
+      "imagePath": "assets/images/kulaklik.png",
+      "description": "Aktif gürültü engelleme, 30 saat pil ömrü ve hızlı şarj özellikleri sunan kablosuz kulaklık. Bluetooth 5.3 ile düşük gecikmeli ses deneyimi.",
+      "rating": 4.6,
+      "inStock": true
+    },
+    {
+      "id": 2,
+      "name": "Akıllı Saat",
+      "price": 2499.00,
+      "category": "Elektronik",
+      "imagePath": "assets/images/akilli_saat.png",
+      "description": "Nabız ölçer, GPS, kan oksijen sensörü ve 7 gün pil ömrü. Su geçirmez (5 ATM) ve 100'den fazla spor modu desteği.",
+      "rating": 4.4,
+      "inStock": true
+    },
+    {
+      "id": 3,
+      "name": "Bluetooth Hoparlör",
+      "price": 899.50,
+      "category": "Elektronik",
+      "imagePath": "assets/images/hoparlor.png",
+      "description": "20W güç, IPX7 su geçirmezlik ve 360° ses dağılımı. 12 saat kesintisiz çalma süresi, taşınabilir tasarım.",
+      "rating": 4.5,
+      "inStock": true
+    },
+    {
+      "id": 4,
+      "name": "Spor Ayakkabı",
+      "price": 1199.00,
+      "category": "Giyim",
+      "imagePath": "assets/images/ayakkabi.png",
+      "description": "Hafif EVA taban, nefes alabilir örgü üst ve esnek yapısıyla günlük spor için ideal. Çift renk seçeneği.",
+      "rating": 4.3,
+      "inStock": true
+    },
+    {
+      "id": 5,
+      "name": "Deri Çanta",
+      "price": 1850.00,
+      "category": "Giyim",
+      "imagePath": "assets/images/canta.png",
+      "description": "Hakiki deri, fermuarlı iç bölme ve ayarlanabilir omuz askısı. Klasik tasarım, dayanıklı dikişler.",
+      "rating": 4.7,
+      "inStock": true
+    },
+    {
+      "id": 6,
+      "name": "Pamuklu Tişört",
+      "price": 199.90,
+      "category": "Giyim",
+      "imagePath": "assets/images/tisort.png",
+      "description": "%100 pamuk, regular fit, sıfır yaka. Yumuşak doku, kolay ütülenebilir. Çamaşır makinesinde 30°C'de yıkanabilir.",
+      "rating": 4.2,
+      "inStock": true
+    },
+    {
+      "id": 7,
+      "name": "Yazılım Mimarisi Kitabı",
+      "price": 320.00,
+      "category": "Kitap",
+      "imagePath": "assets/images/kitap_yazilim.png",
+      "description": "Modern yazılım mimarisi prensipleri, mikroservis tasarımı ve DDD yaklaşımı. 480 sayfa, sert kapak.",
+      "rating": 4.8,
+      "inStock": true
+    },
+    {
+      "id": 8,
+      "name": "Osmanlı Tarihi",
+      "price": 280.00,
+      "category": "Kitap",
+      "imagePath": "assets/images/kitap_tarih.png",
+      "description": "Kuruluştan tanzimat dönemine kadar Osmanlı Devleti'nin siyasi ve sosyal yapısı. 620 sayfa, sert kapak.",
+      "rating": 4.5,
+      "inStock": false
+    },
+    {
+      "id": 9,
+      "name": "Kahve Makinesi",
+      "price": 1599.00,
+      "category": "Ev",
+      "imagePath": "assets/images/kahve.png",
+      "description": "15 bar basınç, otomatik süt köpürtücü, paslanmaz çelik gövde. Espresso, latte ve cappuccino tek tuşla.",
+      "rating": 4.4,
+      "inStock": true
+    },
+    {
+      "id": 10,
+      "name": "Masa Lambası",
+      "price": 389.90,
+      "category": "Ev",
+      "imagePath": "assets/images/lamba.png",
+      "description": "Ayarlanabilir parlaklık, 3 farklı ışık tonu ve USB şarj çıkışı. Esnek kol, dokunmatik kontrol.",
+      "rating": 4.1,
+      "inStock": true
+    }
+  ]
+}
