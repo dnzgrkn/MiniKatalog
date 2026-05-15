@@ -19,7 +19,7 @@ Bu uygulama, bir mağazanın ürünlerini kategorize ederek sergilemesine, detay
 
 ## 🛠 Teknik Detaylar
 * **Dil:** Dart
-* **Framework:** Flutter (v3.0.0+)
+* **Framework:** Flutter (v3.32.7)
 * **Veri Yönetimi:** Local JSON (`assets/data/products.json`)
 * **Mimari:** Clean UI & Model-View Separation
 
